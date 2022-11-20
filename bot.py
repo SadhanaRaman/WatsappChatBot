@@ -18,7 +18,7 @@ def bot():
     resp = MessagingResponse()
     msg = resp.message()
     responded = False
-    if incoming_msg == 'hello' or 'hi' or 'hola' or 'hiya' or 'hey' or 'sup' or 'wassup':
+    if  incoming_msg in ('hello' , 'hi' , 'hola' , 'hiya' , 'hey' , 'sup' , 'wassup') :
         response = emoji.emojize("""
 Hello, I am your friendly neighbourhood bot :grinning_face_with_big_eyes:
 I was built by *Sadhana Kalyana Raman*. 
