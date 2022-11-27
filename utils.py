@@ -1,6 +1,6 @@
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "small-talk-3-pkdv-899ad0f7039c.json"
-import dialogflow_v2 as dialogflow
+import google.cloud.dialogflow_v2 as dialogflow
 dialogflow_session_client = dialogflow.SessionsClient()
 PROJECT_ID="small-talk-3-pkdv"
 

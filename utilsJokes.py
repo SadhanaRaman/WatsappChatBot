@@ -1,6 +1,6 @@
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "jokes-rvbh-b3c97a0420ec.json"
-import dialogflow_v2 as dialogflow
+import google.cloud.dialogflow_v2 as dialogflow
 dialogflow_session_client = dialogflow.SessionsClient()
 PROJECT_ID="jokes-rvbh"
 
