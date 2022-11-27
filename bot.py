@@ -5,6 +5,7 @@ import datetime
 import random
 import json
 import emoji
+from utils import fetch_reply
 
 app = Flask(__name__)
 
@@ -15,6 +16,8 @@ def hello():
 @app.route('/bot', methods=['POST'])
 def bot():
     incoming_msg = request.values.get('Body', '').lower()
+    message = request.form.get('Body')
+    phone_no = request.form.get('From')
     resp = MessagingResponse()
     msg = resp.message()
     responded = False
@@ -34,8 +37,7 @@ Let's chat! :beaming_face_with_smiling_eyes:
 """)
         msg.body(response)
         responded = True
-
-    if 'quote' in incoming_msg:
+    elif 'quote' in incoming_msg:
         # return a quote
         r = requests.get('https://api.quotable.io/random')
         if r.status_code == 200:
@@ -102,14 +104,14 @@ _Published at {:02}/{:02}/{:02} {:02}:{:02}:{:02} UTC_
     published_at.minute, 
     published_at.second
     )
-
         else:
             result = 'I cannot fetch news at this time. Sorry!'
 
         msg.body(result)
-        responded = True    
-    if not responded:
-        msg.body('Sorry, but I do not understand, try again?')
+        responded = True 
+    elif not responded:
+        reply = fetch_reply(message, phone_no) 
+        msg.body(reply)
     return str(resp)
 
 if __name__ == "__main__":
