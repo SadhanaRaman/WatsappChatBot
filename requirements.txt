@@ -6,7 +6,7 @@ colorama==0.4.6
 dialogflow==2.0.0
 emoji==2.2.0
 Flask==2.2.2
-google-api-core==1.33.2
+google-api-core
 google-auth==2.14.1
 google-cloud-dialogflow==2.16.1
 googleapis-common-protos==1.57.0
