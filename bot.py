@@ -6,6 +6,7 @@ import random
 import json
 import emoji
 from utils import fetch_reply
+from utilsJokes import fetch_reply_jokes
 
 app = Flask(__name__)
 
@@ -21,16 +22,19 @@ def bot():
     resp = MessagingResponse()
     msg = resp.message()
     responded = False
-    if  incoming_msg in ('hello' , 'hi' , 'hola' , 'hiya' , 'hey' , 'sup' , 'wassup') :
+    if  incoming_msg in ('hello' , 'hi' , 'hola' , 'hiya' , 'hey' , 'sup' , 'wassup', 'hoy') :
         response = emoji.emojize("""
 Hello, I am your friendly neighbourhood bot :grinning_face_with_big_eyes:
 I was built by *Sadhana Kalyana Raman*. 
-If you type:
+I was made primarily for small talk, to emulate a conversational partner. 
+However I can do a few more things in addition, to keep you entertained.
+For instance, if you type:
 :black_small_square: '*quote*': You'll hear an inspirational quote! :star:
-:black_small_square: '*cat*': I will send you a cute cat picture :cat:
-:black_small_square: '*dog*': You'll get a lovely dog picture :dog:
-:black_small_square: '*meme*': You'll receive the top memes from reddit. :beaming_face_with_smiling_eyes:
+:black_small_square: '*cat*': I will demonstrate my ability to send images and media with a cat picture :cat:
+:black_small_square: '*dog*': Or lovely dog picture :dog:
+:black_small_square: '*meme*': You'll receive the funniest memes from reddit. :beaming_face_with_smiling_eyes:
 :black_small_square: '*news*': You can read the latest news. :newspaper:
+:black_small_square: '*joke*': I can tell you a joke :winking_face:
 But this is not all, I was designed to converse and can make small talk. 
 Don't hesitate to tell me about your day or ask me for a joke. 
 Let's chat! :beaming_face_with_smiling_eyes:
@@ -109,9 +113,13 @@ _Published at {:02}/{:02}/{:02} {:02}:{:02}:{:02} UTC_
 
         msg.body(result)
         responded = True 
+    elif 'joke' in incoming_msg:
+        reply = fetch_reply_jokes(message, phone_no) 
+        msg.body(reply)
     elif not responded:
         reply = fetch_reply(message, phone_no) 
         msg.body(reply)
+
     return str(resp)
 
 if __name__ == "__main__":

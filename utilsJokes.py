@@ -1,8 +1,8 @@
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "small-talk-3-pkdv-899ad0f7039c.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "jokes-rvbh-b3c97a0420ec.json"
 import dialogflow_v2 as dialogflow
 dialogflow_session_client = dialogflow.SessionsClient()
-PROJECT_ID="small-talk-3-pkdv"
+PROJECT_ID="jokes-rvbh"
 
 def detect_intent_from_text(text, session_id, language_code='en'):
     session = dialogflow_session_client.session_path(PROJECT_ID, session_id)
@@ -11,7 +11,6 @@ def detect_intent_from_text(text, session_id, language_code='en'):
     response = dialogflow_session_client.detect_intent(session=session, query_input=query_input)
     return response.query_result
 
-def fetch_reply(query, session_id):
+def fetch_reply_jokes(query, session_id):
 	response = detect_intent_from_text(query,session_id)
 	return response.fulfillment_text   
-
