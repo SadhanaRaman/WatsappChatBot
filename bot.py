@@ -28,11 +28,11 @@ Hello, I am your friendly neighbourhood bot :grinning_face_with_big_eyes:
 I was built by *Sadhana Kalyana Raman*. 
 I was designed primarily for small talk, to emulate a conversational partner. 
 However I can do a few more things in addition, to keep you entertained.
-For instance, if you type:
-:black_small_square: '*quote*': You'll hear an inspirational quote! :star:
-:black_small_square: '*cat*': I will demonstrate my ability to send images and media with a cat picture :cat:
+For instance, type:
+:black_small_square: '*quote*': To hear an inspirational quote! :star:
+:black_small_square: '*cat* or '*dog*': And I will demonstrate my ability to send images and media with :cat: and :dog: pictures
 :black_small_square: '*dog*': Or lovely dog picture :dog:
-:black_small_square: '*meme*': You'll receive the funniest memes from reddit. :beaming_face_with_smiling_eyes:
+:black_small_square: '*meme*': For the funniest memes from reddit. :beaming_face_with_smiling_eyes:
 :black_small_square: '*news*': You can read the latest news. :newspaper:
 :black_small_square: '*joke*': I can tell you a joke :winking_face:
 Don't hesitate to tell me about your day or ask me for a joke. 
